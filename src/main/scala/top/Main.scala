@@ -1,19 +1,13 @@
 package top
+import top.problems.P08._
+import top.problems.P09._
 
 object Main {
 
-  def compress2[T](l: List[T]): List[T] = l match {
-    case Nil => Nil
-    case head :: tail =>
-      if (tail.isEmpty || head != tail.head) head :: compress(tail) else compress(tail)
-  }
-
-  def compress[T](ls: List[T]): List[T] =
-    ls.foldRight(List.empty[T])((t, z) => if (z.isEmpty || t != z.head) t :: z else z)
-
   def main(args: Array[String]): Unit = {
-    val l = List('a', 'a', 'a', 'b', 'b', 'b', 'b', "c")
 
-    println(compress(l))
+    println(compress(List('a', 'a', 'a', 'b', 'b', 'b', 'b', "c")))
+
+    println(pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)))
   }
 }
